@@ -1,6 +1,6 @@
 # S4: preprosim parameter class
 
-#' An S4 class to represent preprosim parameters
+#' An S4 class representing simulation control parameters
 #'
 #'@slot noisecol (numeric)
 #'@slot noiseparam (numeric)
@@ -48,7 +48,7 @@ setClass("preprosimparameter", representation(noisecol="numeric", noiseparam="nu
                    volumedecreasefunction="volumedecreasefunction(data, param)", outlierfunction="outlierfunction(data, param)")
 )
 
-#' Create new preprosimparameter object
+#' Create new simulation control parameter object
 #'
 #' Preprosim parameter objects contain eight contaminations: noise, lowvar, misval, irfeature, classswap, classimbalance, volumedecrease and outlier.
 #' Each contamination has three sub parameters: cols as columns the contamination is applied to, param as the
@@ -119,7 +119,7 @@ newparam <- function(dataframe, type="default", x, z){
   object
 }
 
-#' Change preprosimparametes
+#' Change simulation control parameter object
 #'
 #' Preprosim parameter objects contain eight contaminations: noise, lowvar, misval, irfeature, classswap, classimbalance, volumedecrease and outlier.
 #' Each contamination has three sub parameters: cols as columns the contamination is applied to, param as the
@@ -233,11 +233,12 @@ getexecutionorder <- function(object){
   exeorder
 }
 
-#' An S4 class to represent preprosim data
+#' An S4 class representing preprosim data
 #'
 #'@slot x (data frame) data frame consisting of numeric features
 #'@slot y (factor) vector of class labels
 #'@slot z (boolean) safe for classification (i.e. no NAs)
+#'@keywords internal
 
 setClass("preprosimdata", representation(x="data.frame", y="factor",z="logical"))
 
@@ -266,14 +267,15 @@ validatedata <- function(data){
 }
 
 
-#' An S4 class to represent preprosim analysis output
+#' An S4 class representing simulation run results
 #'
 #'@slot grid (data frame) data frame consisting of combinations of preprosimparameters
 #'@slot data (list) list of simulated data sets
 #'@slot output (numeric) vector of classification accuracies
 #'@slot variableimportance (data frame) data frame consisting of variable importance values
 #'@slot outliers (numeric) vector of outlier scores
-setClass("preprosimanalysis", representation(grid="data.frame", data="list", output="numeric", variableimportance="data.frame", outliers="numeric"))
+setClass("preprosimanalysis", representation(grid="data.frame", data="list", output="numeric", variableimportance="data.frame", outliers="numeric"),
+         prototype(output=NULL, variableimportance=NULL, outliers=NULL))
 
 
 

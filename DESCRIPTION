@@ -1,8 +1,8 @@
 Package: preprosim
 Type: Package
 Title: Lightweight Data Quality Simulation for Classification
-Version: 0.1.0
-Date: 2016-05-28
+Version: 0.2.0
+Date: 2016-07-26
 Authors@R: person("Markus", "Vattulainen", email = "markus.vattulainen@gmail.com", role = c("aut", "cre"))
 Description: Data quality simulation can be used to check the robustness of data
     analysis findings and learn about the impact of data quality contaminations on
@@ -14,15 +14,15 @@ Description: Data quality simulation can be used to check the robustness of data
 License: GPL-2
 LazyData: TRUE
 Imports: DMwR, reshape2, ggplot2, methods, stats, caret, doParallel,
-        foreach
-Suggests: gbm, testthat, preprocomb, preproviz, knitr, rmarkdown
+        foreach, e1071
+Suggests: gbm, preprocomb, preproviz, knitr, rmarkdown
 URL: https://github.com/mvattulainen/preprosim
 BugReports: https://github.com/mvattulainen/preprosim/issues
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-05-28 04:39:33 UTC; Markus
+Packaged: 2016-07-26 03:32:33 UTC; Markus
 Author: Markus Vattulainen [aut, cre]
 Maintainer: Markus Vattulainen <markus.vattulainen@gmail.com>
 Repository: CRAN
-Date/Publication: 2016-05-28 08:18:24
+Date/Publication: 2016-07-26 12:14:58
